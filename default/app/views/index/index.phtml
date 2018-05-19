@@ -1,0 +1,96 @@
+<div class="container">
+    <div class="text-center">
+        <h3>Consulta para Tabla</h3>
+    </div>
+    <form name="formulario" action="" onSubmit="listar(); return false" >
+        <div class="row">
+            <div class="col-2">
+                <div class="form-group">
+                    <label>Periodo</label>
+                    <?php echo Form::select('consulta.periodo', array('DI' => 'Diario', 'ME' => 'Mensual', 'AN' => 'Anual'), 'class="form-control" required') ?>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="form-group">
+                    <label>Desde</label>
+                    <?php echo Form::date('consulta.fdesde', 'class="form-control" required', date('Y-m-d')) ?>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="form-group">
+                    <label>Hasta</label>
+                    <?php echo Form::date('consulta.fhasta', 'class="form-control" required', date('Y-m-d')) ?>
+                </div>
+            </div>                       
+        </div>
+        <div class="row">
+            <div class="col-1">
+                <button type="submit" class="btn btn-success">Consultar</button>
+            </div> 
+        </div>
+    </form>
+    <p></p>
+    <div class="row">
+        <div class="col-12">                                                                            
+            <table id="dt_datos" class="table border">
+                <thead>
+                    <tr>
+                        <th>Indice</th>
+                        <th>Fecha</th>
+                        <th>Ind_act</th>
+                        <th>Ind_ant</th>   
+                        <th>Ind_may</th>
+                        <th>Ind_med</th>
+                        <th>Ind_men</th>
+                        <th>Ind_pro</th>
+                        <th>Ind_var</th>                            
+                    </tr>
+                </thead>
+
+            </table>        
+        </div>
+    </div>
+</div>
+<p></p>
+<div class="container">
+    <div class="text-center">
+        <h3>Consulta para Gráficos</h3>
+    </div>
+    <form name="formulario2" action="" onSubmit="graficar(); return false" >
+        <div class="row">
+            <div class="col-2">
+                <div class="form-group">
+                    <label>Periodo</label>
+                    <?php echo Form::select('graficar.indice', array('IGPA' => 'IGPA', 'IPSA' => 'IPSA', 'INTER-10' => 'INTER-10'), 'class="form-control" required') ?>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="form-group">
+                    <label>Periodo</label>
+                    <?php echo Form::select('graficar.periodo', array('DI' => 'Diario', 'ME' => 'Mensual', 'AN' => 'Anual'), 'class="form-control" required') ?>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="form-group">
+                    <label>Desde</label>
+                    <?php echo Form::date('graficar.fdesde', 'class="form-control" required', date('Y-m-d')) ?>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="form-group">
+                    <label>Hasta</label>
+                    <?php echo Form::date('graficar.fhasta', 'class="form-control" required', date('Y-m-d')) ?>
+                </div>
+            </div>                       
+        </div>
+        <div class="row">
+            <div class="col-1">
+                <button type="submit" class="btn btn-success">Consultar</button>
+            </div> 
+        </div>
+    </form>
+    <canvas id="myChart" width="150" height="50"></canvas>
+    <script>
+        
+    </script>
+</div>
